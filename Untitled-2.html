@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>疯狗泰编程资讯网</title>
+    <style>
+
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0; /* 将左边距设置为 0 */
+            width: 100%;
+            background-color: #f2f2f2; /* 將背景顏色設為淺灰色 */
+            color: rgb(0, 225, 255);
+            padding: 0;
+            margin: 0; /* 消除與網頁頂部的留白 */
+        }
+
+
+
+        h1 a {
+            text-decoration: none; 
+            color: rgb(0, 225, 255);
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #444; 
+        }
+
+        p {
+            color: #000000; 
+            font-size: 18px; 
+        }
+
+        footer {
+            position: fixed; 
+            bottom: 0;
+            width: 100%;
+            left: 0; /* 将左边距设置为 0 */
+            background-color: rgb(133, 135, 141);
+            color: #000000;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end; /* 将按钮放置在右边 */
+            width: calc(100% - 35px); /* 减去右边框的宽度 */
+            padding-right: 35px; /* 右边框宽度 */
+        }
+
+        .btn-container button {
+            padding: 0px 0px;
+            font-size: 50px;
+            border: none;
+            cursor: pointer;
+            border-radius: 0px;
+            height: 200px; /* 調整按鈕的高度 */
+            line-height: 100px; /* 垂直置中按鈕內容 */
+            width: 300px; /* 設定按鈕的寬度 */
+            overflow: hidden; /* 隱藏超出按鈕邊界的內容 */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn1 {
+            background-color: rgb(136, 136, 136); /* 更改懸停時的背景顏色 */
+            color: rgb(201, 154, 255); 
+            transform: skew(-20deg); /* 將按鈕元素設為平行四邊形 */
+        }
+
+        .btn2 {
+            background-color: rgb(100, 100, 100); /* 按鈕2的背景顏色 */
+            color: rgb(215, 247, 255); 
+            transform: skew(-20deg); /* 將按鈕元素設為平行四邊形 */
+        }
+
+        .btn3 {
+            background-color: rgb(50, 50, 50); /* 按鈕3的背景顏色 */
+            color:  rgb(180, 250, 255);
+            transform: skew(-20deg); /* 扭曲按鈕，創建梯形效果 */
+        }
+
+        .btn1:hover {
+            background-color: rgb(201, 154, 255); /* 按鈕1的背景顏色 */
+            color: rgb(50, 50, 50); /* 更改懸停時的文字顏色 */
+        }
+
+        .btn2:hover {
+            background-color: rgb(215, 247, 255); /* 按鈕2的背景顏色 */
+            color:rgb(50, 50, 50); /* 更改懸停時的文字顏色 */
+        }
+
+        .btn3:hover {
+            background-color: rgb(180, 250, 255); /* 按鈕3的背景顏色 */
+            color: rgb(50, 50, 50); /* 更改懸停時的文字顏色 */
+        }
+
+        img {
+            width: 500px; /* 設定圖片的寬度 */
+            height: auto; /* 讓高度自動根據比例調整 */
+            display: block; /* 使圖片表現為區塊元素 */
+            margin-bottom: 0px; /* 清除底部間距 */
+            margin-left: 20px; /* 增加左邊距 */
+        }
+
+        .background {
+            position: fixed;
+            top: 20%; /* 垂直置中 */
+            left: 5%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: 70% 70%;
+            background-repeat: no-repeat;
+            background-image: url(background.gif);
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="file:///C:/Users/pinjim/OneDrive/%E6%A1%8C%E9%9D%A2/%E7%98%8B%E7%8B%97%E6%B3%B0/Untitled-2.html#"><img src="fkt.png" alt="疯狗泰编程资讯网"></a>
+            <div class="btn-container">
+                <a href=""><button class="btn1">编程總教程</button></a>
+                <a href="https://www.youtube.com/"><button class="btn2">程序设计题</button></a>
+                <a href="https://www.youtube.com/"><button class="btn3">程序题答案</button></a>
+            </div>
+        </h1>
+    </header>
+    <div class="background"></div>
+    <footer style="text-align: right;">
+        <p>&copy;2023 中华人民共和国疯狗泰编程教育中心 <img src="github.png" alt="github" style="width: 150px; float: right;"></p>
+    </footer>
+</body>
+</html>
