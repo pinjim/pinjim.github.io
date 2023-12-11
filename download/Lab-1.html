@@ -12,19 +12,19 @@
             position: fixed;
             top: 0;
             height: 150px;
-            left: 0; /* 将左边距设置为 0 */
+            left: 0;
             width: 100%;
-            background-color: #f2f2f2; /* 將背景顏色設為淺灰色 */
+            background-color: #f2f2f2;
             color: rgb(0, 225, 255);
             padding: 0;
-            margin: 0; /* 消除與網頁頂部的留白 */
+            margin: 0;
         }
 
         footer {
             position: fixed; 
             bottom: 0;
             width: 100%;
-            left: 0; /* 将左边距设置为 0 */
+            left: 0;
             background-color: rgb(133, 135, 141);
             color: #000000;
             padding: 0px;
@@ -33,9 +33,9 @@
 
         .btn-container {
             display: flex;
-            justify-content: flex-end; /* 将按钮放置在右边 */
-            width: calc(100% - 35px); /* 减去右边框的宽度 */
-            padding-right: 35px; /* 右边框宽度 */
+            justify-content: flex-end;
+            width: calc(100% - 35px);
+            padding-right: 35px;
         }
 
         .btn-container button {
@@ -44,32 +44,49 @@
             border: none;
             cursor: pointer;
             border-radius: 0px;
-            height: 150px; /* 調整按鈕的高度 */
-            line-height: 100px; /* 垂直置中按鈕內容 */
-            width: 220px; /* 設定按鈕的寬度 */
-            overflow: hidden; /* 隱藏超出按鈕邊界的內容 */
+            height: 150px;
+            line-height: 100px;
+            width: 220px;
+            overflow: hidden;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .btn3 {
-            background-color: rgb(50, 50, 50); /* 按鈕3的背景顏色 */
-            color:  rgb(180, 250, 255);
-            transform: skew(-20deg); /* 扭曲按鈕，創建梯形效果 */
+            background-color: rgb(50, 50, 50);
+            color: rgb(180, 250, 255);
+            transform: skew(-20deg);
         }
 
         .btn3:hover {
-            background-color: rgb(180, 250, 255); /* 按鈕3的背景顏色 */
-            color: rgb(50, 50, 50); /* 更改懸停時的文字顏色 */
+            background-color: rgb(180, 250, 255);
+            color: rgb(50, 50, 50);
         }
 
         img {
-            width: auto; /* 設定圖片的寬度 */
-            height: 120px; /* 讓高度自動根據比例調整 */
-            display: block; /* 使圖片表現為區塊元素 */
-            margin-bottom: 0px; /* 清除底部間距 */
-            margin-left: 20px; /* 增加左邊距 */
+            width: auto;
+            height: 120px;
+            display: block;
+            margin-bottom: 0px;
+            margin-left: 20px;
         }
 
+        h2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 150px; /* 调整距离顶部的位置 */
+            height: 50px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #cf7cff, #9ae7ff);
+            padding: 0;
+            margin: 0;
+            padding-left: 50px;
+            color: white;
+            font-size: 30px;
+        }
+       
         .button-container {
             text-decoration: none; /* 将文本下划线去除 */
             text-align: center;
@@ -77,6 +94,7 @@
         }
 
         .button {
+            align-items: center;
             text-align: left;
             padding: 10px 20px;
             font-size: 30px;
@@ -86,47 +104,19 @@
             border-radius: 5px;
             cursor: pointer;
             width: auto;
+            text-align: center;
             transition: background-color 0.1s, color 0.1s;
+        }
+
+        .button img {
+            margin-right: 30px; /* 图片与文字之间的间距 */
+            width: 100px; /* 图片宽度 */
+            height: auto; /* 图片高度自适应 */
         }
 
         .button:hover {
             background-color: rgb(138, 138, 138);
             color: rgb(255, 255, 255);
-        }
-
-        h2 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: fixed;
-            top: 150px;
-            height: 50px;
-            left: 0; /* 将左边距设置为 0 */
-            width: 100%;
-            background: linear-gradient(to right, #cf7cff, #9ae7ff); /* 將背景顏色設為淺灰色 */
-            padding: 0;
-            margin: 0; /* 消除與網頁頂部的留白 */
-            padding-left: 50px; /* 距離左邊50px */
-            color: white; /* 白色字體 */
-            font-size: 30px;
-        }
-       
-        .image-button {
-            border: none;
-            background-color: #acacac; /* 按钮背景颜色 */
-            color: rgb(88, 88, 88); /* 文字颜色 */
-            padding: 10px 20px; /* 按钮内边距 */
-            border-radius: 5px; /* 按钮边框圆角 */
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .image-button img2,
-        .image-button span {
-            vertical-align: middle;
         }
 
 
@@ -140,10 +130,9 @@
         </div>
     </h1>
     <h2>Chapter01 : 资料结构导论 Introduction</h2>
-    <button class="image-button" onclick="window.location.href='https://pinjim.github.io/download/Lab1'">
-        <img2 src="cpp.png" alt="Lab1.cpp" style="vertical-align: middle;">
-        <span style="vertical-align: middle;">Lab1.cpp</span>
-    </button>    
+    <div class="button-container">
+        <a href="https://pinjim.github.io/download"><button class="button"><img src="cpp.png">Lab1</button></a>
+    </div>
 </body>
 <footer style="text-align: right;">
     <p>&copy;2023 中华人民共和国疯狗泰编程教育中心 </p>
