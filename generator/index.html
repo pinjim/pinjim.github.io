@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳴潮複製文生產器V1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .title {
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            color: #36c;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .example-description {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .example-input {
+            color: #32a852;
+            font-weight: bold;
+        }
+
+        .example-output {
+            color: #36c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">鳴潮複製文生產器V1</h1>
+        <p class="example-description">
+            這個產生器可以生成出鳴潮文體的複製文，例如：<br>
+            A : <span class="example-input">手遊玩家</span><br>
+            B : <span class="example-input">電腦玩家</span><br>
+            敘述 : <span class="example-input">打打BOSS，把遊戲破關</span><br>
+            <span class="example-output">手遊玩家是這樣的，電腦玩家只要打打BOSS，把遊戲破關就可以，可是手遊玩家要考慮的事情就很多了。</span>
+        </p>
+        <form id="inputForm">
+            <label for="inputA">請輸入A的名稱<br></label>
+            <input type="text" id="inputA" name="inputA" maxlength="100" placeholder="*Max 100 chars" required>
+            
+            <label for="inputB"><br>請輸入B的名稱<br></label>
+            <input type="text" id="inputB" name="inputB" maxlength="100" placeholder="*Max 100 chars" required>
+            
+            <label for="inputThing"><br>請輸入敘述的內容<br></label>
+            <input type="text" id="inputThing" name="inputThing" maxlength="200" placeholder="*Max 200 chars" required>
+            <br><br>
+            <button type="button" onclick="generateText()">生成</button>
+        </form>
+        <p id="output" class="output"></p>
+    </div>
+    <script>
+        function generateText() {
+            const inputA = document.getElementById('inputA').value;
+            const inputB = document.getElementById('inputB').value;
+            const inputThing = document.getElementById('inputThing').value;
+            
+            if (inputA && inputB && inputThing) {
+                const output = `${inputA}是這樣的，${inputB}只要${inputThing}就可以，可是${inputA}要考慮的事情就很多了。`;
+                document.getElementById('output').innerText = output;
+                document.getElementById('output').style.color = '#36c'; // Set text color to cyan
+            } else {
+                document.getElementById('output').innerText = "請填寫所有的字段。";
+                document.getElementById('output').style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
