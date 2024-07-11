@@ -3,15 +3,26 @@ let iteminfo = [
     {"itemID":1, "type":1, "name":`柳橙汁`, "count":10, "price":29, "image":`./images/juice.jpg`},
     {"itemID":2, "type":1, "name":`紅茶`, "count":10, "price":20, "image":`./images/tea.jpg`},
     {"itemID":3, "type":1, "name":`黑咖啡`, "count":10, "price":15, "image":`./images/coffee.jpg`},
-    {"itemID":4, "type":2, "name":`洋芋片 34g`, "count":10, "price":20, "image":`./images/chip.jpg`},
-    {"itemID":5, "type":2, "name":`鮮乳薄餅 240g`, "count":0, "price":80, "image":`./images/cookie.jpg`},
+    {"itemID":4, "type":2, "name":`洋芋片`, "count":10, "price":20, "image":`./images/chip.jpg`},
+    {"itemID":5, "type":2, "name":`鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie.jpg`},
     {"itemID":6, "type":2, "name":`羅宋麵包`, "count":10, "price":35, "image":`./images/bread.jpeg`},
     {"itemID":7, "type":2, "name":`泡麵`, "count":10, "price":25, "image":`./images/ramen.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`窩不知道`, "count":0, "price":1234, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`窩不保底`, "count":10, "price":5678, "image":`./images/test.png`},
 ];
 
 const container = document.getElementById('item-container');
+
+function AddRandomItem(){
+    let index = 8;
+    while(Math.random()*10<=9){
+        let name = `testitem${index}`;
+        let count = Math.round(Math.random());
+        let price = Math.round(Math.random()*1000);
+        let images = [`./images/yys.png`, `./images/ys.png`, `./images/ss.png`, `./images/sj.png`, `./images/jb.png`];
+        let image = images[Math.round(Math.random()*4)];
+        iteminfo.push({"itemID":``, "type":`test`, "name":name, "count":count, "price":price, "image":image});
+        index+=1;
+    }
+}
 
 function ClearLocalStorage(){
     localStorage.clear();
@@ -199,9 +210,9 @@ function NoThank(){
 }
 
 function Calculation(){
-    let cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
-    if(cart && cart.length <= 0) window.location.href = "./home.html";
-    else{   
+    try{
+        let cart = [];
+        cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}(${100-(cart[1].discount*100)}%OFF)`;
             document.getElementById('itemprice').innerText = `NTD $${cart[0].price}\nNTD $${cart[1].price}`;
@@ -212,6 +223,9 @@ function Calculation(){
             document.getElementById('itemprice').innerText = `NTD $${cart[0].price}`;
             document.getElementById('totalprice').innerText = `NTD $${cart[0].price}`;
         }
+    }catch(error){
+        console.log(error);
+        Redirect();
     }
 }
 
