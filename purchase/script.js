@@ -1,20 +1,13 @@
 let iteminfo = [
-    {"itemID":0, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda.jpg`},
-    {"itemID":1, "type":1, "name":`柳橙汁`, "count":10, "price":29, "image":`./images/juice.jpg`},
+    {"itemID":0, "type":1, "name":`可口可樂`, "count":0, "price":15, "image":`./images/soda.jpg`},
+    {"itemID":1, "type":1, "name":`柳橙汁`, "count":0, "price":29, "image":`./images/juice.jpg`},
     {"itemID":2, "type":1, "name":`紅茶`, "count":10, "price":20, "image":`./images/tea.jpg`},
-    {"itemID":3, "type":1, "name":`黑咖啡`, "count":10, "price":15, "image":`./images/coffee.jpg`},
-    {"itemID":4, "type":2, "name":`洋芋片 34g`, "count":10, "price":20, "image":`./images/chip.jpg`},
-    {"itemID":5, "type":2, "name":`鮮乳薄餅 240g`, "count":10, "price":80, "image":`./images/cookie.jpg`},
-    {"itemID":6, "type":2, "name":`羅宋麵包`, "count":10, "price":35, "image":`./images/bread.jpeg`},
+    {"itemID":3, "type":1, "name":`黑咖啡`, "count":0, "price":15, "image":`./images/coffee.jpg`},
+    {"itemID":4, "type":2, "name":`洋芋片 34g`, "count":0, "price":20, "image":`./images/chip.jpg`},
+    {"itemID":5, "type":2, "name":`鮮乳薄餅 240g`, "count":0, "price":80, "image":`./images/cookie.jpg`},
+    {"itemID":6, "type":2, "name":`羅宋麵包`, "count":0, "price":35, "image":`./images/bread.jpeg`},
     {"itemID":7, "type":2, "name":`泡麵`, "count":10, "price":25, "image":`./images/ramen.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
-    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`窩不知道peko`, "count":10, "price":0, "image":`./images/test.jpg`},
 ];
 
 const container = document.getElementById('item-container');
@@ -114,10 +107,12 @@ function CreatDiscountItemContainer(){
     while(usedindex.length<3){
         let randomindex = Math.floor(Math.random() * iteminfo.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
-            usedindex.push(randomindex);
-            let itemwrapper = CreatDiscountItemWrapper(iteminfo[randomindex], discount/10);
-            container.appendChild(itemwrapper);
-            discount+=1;
+            if(iteminfo[randomindex].count>0){
+                usedindex.push(randomindex);
+                let itemwrapper = CreatDiscountItemWrapper(iteminfo[randomindex], discount/10);
+                container.appendChild(itemwrapper);
+                discount+=1;
+            }
         }
     }
     itemwrapper = document.createElement('div');
