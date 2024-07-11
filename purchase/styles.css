@@ -10,7 +10,9 @@ body {
 
 .item-container {
     background-color: #f0f0f0;
-    width: 1460px;
+    max-width: 1460px;
+    width: auto;
+    min-width: 730;
     height: auto;
     display: flex;
     flex-wrap: wrap; 
@@ -18,7 +20,9 @@ body {
     border-radius: 8px;
 }
 .item-container > div {
+    display: flex;
     margin: 20px;
+    align-items: auto;
 }
 .item-wrapper {
     display: flex;
@@ -114,7 +118,6 @@ button:hover {
     background-color: #723131;
     transition: 0.5s;
 }
-
 redirect {
     font-size: 50px;
     padding: 10px 20px;
