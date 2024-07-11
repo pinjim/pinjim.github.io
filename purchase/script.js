@@ -7,6 +7,14 @@ let iteminfo = [
     {"itemID":5, "type":2, "name":`義美鮮乳薄餅 240g`, "count":10, "price":80, "image":`./images/cookie.jpg`},
     {"itemID":6, "type":2, "name":`統一海鹽羅宋麵包`, "count":10, "price":35, "image":`./images/bread.jpeg`},
     {"itemID":7, "type":2, "name":`來一客鮮蝦魚板風味`, "count":10, "price":25, "image":`./images/ramen.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
+    {"itemID":`test`, "type":`test`, "name":`test`, "count":0, "price":0, "image":`./images/test.jpg`},
 ];
 
 const container = document.getElementById('item-container');
