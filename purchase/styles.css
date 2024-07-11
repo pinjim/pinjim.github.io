@@ -168,13 +168,15 @@ redirect:hover {
 }
 .itemprice{
     color: #4accff;
-    font-size: 40px;
+    font-size: 45px;
     margin-left: auto;
+    text-align: right;
     padding: 10px;
 }
 .totalprice{
     color: #43ca49;
-    font-size: 40px;
+    font-size: 45px;
     margin-left: auto;
+    text-align: right;
     padding: 10px;
 }
