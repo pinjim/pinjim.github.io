@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.item-container {
+    background-color: #f0f0f0;
+    width: 1460px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap; 
+    margin: 50px auto;
+    border-radius: 8px;
+}
+.item-container > div {
+    margin: 20px;
+}
+.item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    width: 320px;
+    height: 420px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #b4b4b4;
+    border-width: 2px;
+}
+.description {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+.price {
+    font-size: 30px;
+    color: #5bc8d6;
+}
+.available {
+    font-size: 25px;
+    border-radius: 8px;
+    margin: 2px;
+}
+.discount {
+    font-size: 25px;
+    border-radius: 8px;
+    margin: 2px;
+}
+.item-wrapper > div {
+    margin: 10px;
+}
+.item {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    width: 300px; 
+    height: 300px; 
+    text-align: center; 
+    color: #54b7c9; 
+    font-size: 40px; 
+    line-height: 300px; 
+    border-radius: 8px;
+    transition: background-color 0.5s, opacity 0.5s;
+}
+.item:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.item:hover::before {
+    content: '購買此商品'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.item::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+
+h1 {
+    font-size: 50px;
+    color: #316872;
+}
+
+
+button {
+    font-size: 50px;
+    padding: 10px 20px;
+    background-color: #c95454;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color: #723131;
+    transition: 0.5s;
+}
+
+redirect {
+    font-size: 50px;
+    padding: 10px 20px;
+    background-color: #02a915;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+redirect:hover {
+    background-color: #00700d;
+    transition: 0.5s;
+}
+
+
+.iteminfocontanier{
+    width: 40%;
+    height: auto;
+    min-width: 900px;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+.itemname{
+    color: #494949;
+    font-size: 40px;
+    text-align: left;
+    margin-left:0;
+    padding: 10px;
+}
+.itemprice{
+    color: #4accff;
+    font-size: 40px;
+    margin-left: auto;
+    padding: 10px;
+}
+.totalprice{
+    color: #43ca49;
+    font-size: 40px;
+    margin-left: auto;
+    padding: 10px;
+}
