@@ -11,8 +11,8 @@ body {
 .item-container {
     background-color: #f0f0f0;
     max-width: 1460px;
-    width: auto;
-    min-width: 365;
+    width: 75%;
+    min-width: 365px;
     height: auto;
     display: flex;
     flex-wrap: wrap; 
