@@ -10,30 +10,46 @@ body {
 
 .item-container {
     background-color: #f0f0f0;
-    max-width: 1460px;
-    width: 75%;
-    min-width: 365px;
-    height: auto;
     display: flex;
-    flex-wrap: wrap; 
-    margin: 50px auto;
+    max-width: 1725px;
+    min-width: 345px;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 20px;
     border-radius: 8px;
-}
-.item-container > div {
-    display: flex;
-    margin: 20px;
-    align-items: auto;
+    margin: 50px auto;
 }
 .item-wrapper {
     display: flex;
     flex-wrap: wrap;
     background-color: #ffffff;
     width: 320px;
-    height: 420px;
+    height: auto;
     border-radius: 8px;
     border-style: solid;
     border-color: #b4b4b4;
     border-width: 2px;
+    margin: 10px;
+}
+@media (max-width: 1916px) {
+    .item-container {
+        max-width: 1380px;
+    }
+}
+@media (max-width: 1530px) {
+    .item-container {
+        max-width: 1035px;
+    }
+}
+@media (max-width: 1150px) {
+    .item-container {
+        max-width: 690px;
+    }
+}
+@media (max-width: 766px) {
+    .item-container {
+        max-width: 345px;
+    }
 }
 .description {
     display: flex;
