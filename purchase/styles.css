@@ -12,7 +12,7 @@ body {
     background-color: #f0f0f0;
     max-width: 1460px;
     width: auto;
-    min-width: 730;
+    min-width: 365;
     height: auto;
     display: flex;
     flex-wrap: wrap; 
@@ -134,9 +134,10 @@ redirect:hover {
 
 
 .iteminfocontanier{
-    width: 40%;
+    max-width: 1460px;
+    width: auto;
+    min-width: 730;
     height: auto;
-    min-width: 900px;
     background-color: rgb(231, 231, 231);
     display: flex;
     margin: 20px auto;
