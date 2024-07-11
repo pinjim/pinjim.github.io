@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結帳</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>謝謝光臨!</h1>
+    <script>
+        window.onload = function() {
+            Calculation();
+        };
+    </script>
+    <div class="iteminfocontanier">
+        <div id="itemname" class="itemname"></div>
+        <div id="itemprice" class="itemprice"></div>
+    </div>
+    <div class="iteminfocontanier">
+        <div class="itemname">總金額</div>
+        <div id="totalprice" class="totalprice"></div>
+    </div>
+    <redirect onclick="Redirect()">結束</redirect>
+</body>
+</html>
