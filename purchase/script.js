@@ -16,9 +16,9 @@ function AddRandomItem(){
     while(Math.random()*10<=9){
         let name = `testitem${index}`;
         let count = Math.round(Math.random());
-        let price = Math.round(Math.random()*1000);
-        let images = [`./images/yys.png`, `./images/ys.png`, `./images/ss.png`, `./images/sj.png`, `./images/jb.png`];
-        let image = images[Math.round(Math.random()*4)];
+        let price = Math.round(Math.random()*100);
+        let images = [`./images/yys.png`, `./images/ys.png`, `./images/ss.png`, `./images/sj.png`, `./images/jb.png`, `./images/chs.png`];
+        let image = images[Math.round(Math.random()*5)];
         iteminfo.push({"itemID":``, "type":`test`, "name":name, "count":count, "price":price, "image":image});
         index+=1;
     }
@@ -45,7 +45,7 @@ function CreatItemWrapper(item){
 
     let priceDiv = document.createElement('div');
     priceDiv.classList.add('price');/*創建class:price*/
-    priceDiv.textContent = `TWD$ ${item.price}`;
+    priceDiv.textContent = `NT$${item.price}`;
     descriptionDiv.appendChild(priceDiv);/*在description下加入price*/
 
     let availabilityDiv = document.createElement('div');
@@ -89,13 +89,13 @@ function CreatDiscountItemWrapper(item, discount){
     descriptionDiv.classList.add('description');/*創建class:description*/
     
     let priceDiv = document.createElement('div');
-    priceDiv.classList.add('price'); // 添加类名 'price'
+    priceDiv.classList.add('price'); /*創建class:price*/
 
     let originalPriceSpan = document.createElement('span');
-    originalPriceSpan.textContent = `TWD$ ${Math.round(item.price)}`;
+    originalPriceSpan.textContent = `NT$${Math.round(item.price)}`;
     originalPriceSpan.style.textDecoration = 'line-through';
     let discountedPriceSpan = document.createElement('span');
-    discountedPriceSpan.textContent = `TWD$ ${Math.round(item.price * discount)}`;
+    discountedPriceSpan.textContent = `NT$${Math.round(item.price * discount)}`;
     priceDiv.appendChild(originalPriceSpan);
     priceDiv.appendChild(document.createElement('br'));
     priceDiv.appendChild(discountedPriceSpan);
@@ -187,7 +187,7 @@ function SelectDiscountItem(item, discount){
             if(String(item) === iteminfo[index].name){
                 let choose = confirm(`您確定要加購${iteminfo[index].name}嗎?`);
                 if(choose) {
-                    let discountitem = {"name":iteminfo[index].name, "price":Math.round(iteminfo[index].price*discount), "discount":discount};
+                    let discountitem = {"name":iteminfo[index].name, "price":iteminfo[index].price, "discount":discount};
                     console.log(`加購了 : ${iteminfo[index].name}(${Math.round(iteminfo[index].price*discount)})`);
                     localStorage.setItem('discountitem', JSON.stringify(discountitem));
                     window.location.href = "./cashier.html";
@@ -214,14 +214,14 @@ function Calculation(){
         let cart = [];
         cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
-            document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}(${100-(cart[1].discount*100)}%OFF)`;
-            document.getElementById('itemprice').innerText = `NTD $${cart[0].price}\nNTD $${cart[1].price}`;
-            document.getElementById('totalprice').innerText = `NTD $${cart[0].price+cart[1].price}`;
+            document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
+            document.getElementById('itemprice').innerText = `NT$${cart[0].price}\nNT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
+            document.getElementById('totalprice').innerText = `NT$${cart[0].price+cart[1].price}`;
         }
         else{
             document.getElementById('itemname').innerText = `${cart[0].name}`;
-            document.getElementById('itemprice').innerText = `NTD $${cart[0].price}`;
-            document.getElementById('totalprice').innerText = `NTD $${cart[0].price}`;
+            document.getElementById('itemprice').innerText = `NT$${cart[0].price}`;
+            document.getElementById('totalprice').innerText = `NT$${cart[0].price}`;
         }
     }catch(error){
         console.log(error);
