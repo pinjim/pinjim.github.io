@@ -11,6 +11,7 @@
     <h1>謝謝光臨!</h1>
     <script>
         window.onload = function() {
+            CheckLocalStorage();
             Calculation();
         };
     </script>
@@ -22,6 +23,6 @@
         <div class="itemname">總金額</div>
         <div id="totalprice" class="totalprice"></div>
     </div>
-    <redirect onclick="Redirect()">結束</redirect>
+    <div class="redirect" onclick="Redirect()">結束</div>
 </body>
 </html>
