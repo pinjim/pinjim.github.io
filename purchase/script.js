@@ -11,19 +11,6 @@ let iteminfo = [
 
 const container = document.getElementById('item-container');
 
-function AddRandomItem(){
-    let index = 8;
-    while(Math.random()*10<=9){
-        let name = `testitem${index}`;
-        let count = Math.round(Math.random());
-        let price = Math.round(Math.random()*1000);
-        let images = [`./images/yys.png`, `./images/ys.png`, `./images/ss.png`, `./images/sj.png`, `./images/jb.png`, `./images/chs.png`];
-        let image = images[Math.round(Math.random()*5)];
-        iteminfo.push({"itemID":``, "type":`test`, "name":name, "count":count, "price":price, "image":image});
-        index+=1;
-    }
-}
-
 function ClearLocalStorage(){
     localStorage.clear();
 }
@@ -129,7 +116,7 @@ function CreatDiscountItemWrapper(item, discount){
 
 function CreatDiscountItemContainer(){
     let usedindex = [];
-    let discount=6;
+    let discount=7;
     while(usedindex.length<4){
         let randomindex = Math.floor(Math.random() * iteminfo.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
@@ -143,14 +130,24 @@ function CreatDiscountItemContainer(){
     }
     itemwrapper = document.createElement('div');
     itemwrapper.classList.add('item-wrapper');
+    let returnbutton = document.createElement('button');
+    returnbutton.classList.add('returnbutton');
+    returnbutton.textContent = '回上頁';
+    returnbutton.onclick = function() {
+        Back();
+    };
+    itemwrapper.appendChild(returnbutton);
+    container.appendChild(itemwrapper);
 
-    let button = document.createElement('button');
-    button.setAttribute('type', 'button');
-    button.textContent = '不需要';
-    button.onclick = function() {
+    itemwrapper = document.createElement('div');
+    itemwrapper.classList.add('item-wrapper');
+    let nothankbutton = document.createElement('button');
+    nothankbutton.classList.add('nothankbutton');
+    nothankbutton.textContent = '不需要';
+    nothankbutton.onclick = function() {
         NoThank();
     };
-    itemwrapper.appendChild(button);
+    itemwrapper.appendChild(nothankbutton);
     container.appendChild(itemwrapper);
 }
 
@@ -213,6 +210,12 @@ function SelectDiscountItem(item, discount){
     catch(error){
         alert(`${error}`);
     }
+}
+
+function Back(){
+    let choose = confirm(`您確定要回上一頁?`);
+    if(choose) Redirect();
+    else return;
 }
 
 function NoThank(){
