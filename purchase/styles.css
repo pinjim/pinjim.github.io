@@ -11,7 +11,7 @@ body {
 .item-container {
     background-color: #f0f0f0;
     display: flex;
-    max-width: 1725px;
+    max-width: 2070px;
     min-width: 345px;
     flex-wrap: wrap;
     
@@ -30,6 +30,7 @@ body {
     border-color: #b4b4b4;
     border-width: 2px;
     margin: 10px;
+    overflow: hidden;
 }
 .description {
     display: flex;
@@ -100,18 +101,36 @@ h1 {
 }
 
 
-button {
+.nothankbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 50px;
-    padding: 10px 20px;
-    background-color: #c95454;
-    color: #fff;
+    color: #c95454;
+    background-color: #fff;
     border: none;
-    border-radius: 7px;
     cursor: pointer;
     width: 100%;
 }
-button:hover {
-    background-color: #723131;
+.nothankbutton:hover {
+    background-color: #c95454;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.returnbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #5bc8d6;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.returnbutton:hover {
+    background-color: #5bc8d6;
+    color: #ffffff;
     transition: 0.5s;
 }
 .redirect {
@@ -167,8 +186,7 @@ button:hover {
 
 
 
-
-@media (max-width: 1916px) {
+@media (max-width: 2300px) {
     .item-container {
         max-width: 1380px;
     }
@@ -184,30 +202,16 @@ button:hover {
 }
 @media (max-width: 1530px) {
     .item-container {
-        max-width: 1035px;
-    }
-    .itemname {
-        font-size: 30px;
-    }
-    .itemprice {
-        font-size: 30px;
-    }
-    .totalprice {
-        font-size: 30px;
-    }
-}
-@media (max-width: 1150px) {
-    .item-container {
         max-width: 690px;
     }
     .itemname {
-        font-size: 25px;
+        font-size: 30px;
     }
     .itemprice {
-        font-size: 25px;
+        font-size: 30px;
     }
     .totalprice {
-        font-size: 25px;
+        font-size: 30px;
     }
 }
 @media (max-width: 766px) {
@@ -215,12 +219,12 @@ button:hover {
         max-width: 345px;
     }
     .itemname {
-        font-size: 20px;
+        font-size: 25px;
     }
     .itemprice {
-        font-size: 20px;
+        font-size: 25px;
     }
     .totalprice {
-        font-size: 20px;
+        font-size: 25px;
     }
 }
