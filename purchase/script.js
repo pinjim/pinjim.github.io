@@ -16,7 +16,7 @@ function AddRandomItem(){
     while(Math.random()*10<=9){
         let name = `testitem${index}`;
         let count = Math.round(Math.random());
-        let price = Math.round(Math.random()*100);
+        let price = Math.round(Math.random()*1000);
         let images = [`./images/yys.png`, `./images/ys.png`, `./images/ss.png`, `./images/sj.png`, `./images/jb.png`, `./images/chs.png`];
         let image = images[Math.round(Math.random()*5)];
         iteminfo.push({"itemID":``, "type":`test`, "name":name, "count":count, "price":price, "image":image});
@@ -216,7 +216,7 @@ function Calculation(){
         if(cart[1].name != `none`){
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
             document.getElementById('itemprice').innerText = `NT$${cart[0].price}\nNT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
-            document.getElementById('totalprice').innerText = `NT$${cart[0].price+cart[1].price}`;
+            document.getElementById('totalprice').innerText = `NT$${cart[0].price+Math.round(cart[1].price*(cart[1].discount))}`;
         }
         else{
             document.getElementById('itemname').innerText = `${cart[0].name}`;
