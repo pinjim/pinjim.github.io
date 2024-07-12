@@ -32,26 +32,6 @@ body {
     margin: 10px;
     overflow: hidden;
 }
-.description {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    width: 100%;
-}
-.price {
-    font-size: 30px;
-    color: #5bc8d6;
-}
-.available {
-    font-size: 25px;
-    border-radius: 8px;
-    margin: 2px;
-}
-.discount {
-    font-size: 25px;
-    border-radius: 8px;
-    margin: 2px;
-}
 .item-wrapper > div {
     margin: 10px;
 }
@@ -93,6 +73,50 @@ body {
     opacity: 0;
     transition: opacity 0.5s;
 }
+.description {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+.status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left; 
+    width: 49%;
+}
+.price {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    width: 49%;
+    height: 70px;
+    font-size: 45px;
+    color: #ffffff;
+    background-color: #5bc8d6;
+    border-radius: 8px;
+}
+.discountprice {
+    width: 49%;
+    height: 65px;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #5bc8d6;
+    border-radius: 8px;
+}
+.available {
+    font-size: 25px;
+    border-radius: 8px;
+    margin: 2px;
+    width: 100%;
+}
+.discount {
+    font-size: 25px;
+    border-radius: 8px;
+    margin: 2px;
+    width: 100%;
+}
+
 
 
 h1 {
