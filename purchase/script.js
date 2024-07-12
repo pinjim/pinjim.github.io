@@ -1,13 +1,29 @@
 let iteminfo = [
-    {"itemID":0, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda.jpg`},
-    {"itemID":1, "type":1, "name":`柳橙汁`, "count":10, "price":29, "image":`./images/juice.jpg`},
-    {"itemID":2, "type":1, "name":`紅茶`, "count":10, "price":20, "image":`./images/tea.jpg`},
-    {"itemID":3, "type":1, "name":`黑咖啡`, "count":10, "price":15, "image":`./images/coffee.jpg`},
-    {"itemID":4, "type":2, "name":`洋芋片`, "count":10, "price":20, "image":`./images/chip.jpg`},
-    {"itemID":5, "type":2, "name":`鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie.jpg`},
-    {"itemID":6, "type":2, "name":`羅宋麵包`, "count":10, "price":35, "image":`./images/bread.jpeg`},
-    {"itemID":7, "type":2, "name":`泡麵`, "count":10, "price":25, "image":`./images/ramen.jpg`},
+    {"itemID":1, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda.jpg`},
+    {"itemID":2, "type":2, "name":`柳橙汁`, "count":10, "price":29, "image":`./images/juice.jpg`},
+    {"itemID":3, "type":3, "name":`紅茶`, "count":10, "price":20, "image":`./images/tea.jpg`},
+    {"itemID":4, "type":4, "name":`黑咖啡`, "count":10, "price":15, "image":`./images/coffee.jpg`},
+    {"itemID":5, "type":5, "name":`洋芋片`, "count":10, "price":20, "image":`./images/chip.jpg`},
+    {"itemID":6, "type":6, "name":`鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie.jpg`},
+    {"itemID":7, "type":7, "name":`羅宋麵包`, "count":10, "price":35, "image":`./images/bread.jpeg`},
+    {"itemID":8, "type":8, "name":`泡麵`, "count":10, "price":25, "image":`./images/ramen.jpg`},
 ];
+/*
+itemID表示物品代號 (模型判斷用)
+type表示物品分類 (模型判斷用)
+├1:汽水類
+├2:果汁類
+├3:茶飲類
+├4:咖啡類
+├5:薯片類
+├6:餅乾類
+├7:麵包類
+└8:泡麵類
+
+name表示物品名稱 (UI顯示用)
+price表示物品價錢 (UI顯示用)
+image表示物品照片檔案 (UI顯示用)
+*/
 
 const container = document.getElementById('item-container');
 
