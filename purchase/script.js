@@ -1,12 +1,12 @@
 let iteminfo = [
-    {"itemID":1, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda/cocacola.jpg`},
-    {"itemID":2, "type":2, "name":`美粒果柳橙汁`, "count":10, "price":29, "image":`./images/juice/orangejuice.jpg`},
-    {"itemID":3, "type":3, "name":`茶裏王英式紅茶`, "count":10, "price":20, "image":`./images/tea/blacktea.jpg`},
-    {"itemID":4, "type":4, "name":`UCC黑咖啡`, "count":10, "price":15, "image":`./images/coffee/blackcoffee.jpg`},
-    {"itemID":5, "type":5, "name":`經典原味洋芋片`, "count":10, "price":20, "image":`./images/chip/saltchip.jpg`},
-    {"itemID":6, "type":6, "name":`義美鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie/milkcookie.jpg`},
-    {"itemID":7, "type":7, "name":`海鹽羅宋麵包`, "count":10, "price":35, "image":`./images/bread/russianbread.jpg`},
-    {"itemID":8, "type":8, "name":`來一客鮮蝦魚板泡麵`, "count":10, "price":25, "image":`./images/instantnoodle/seafoodnoodle.jpg`},
+    {"itemID":1, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda/soda1.jpg`},
+    {"itemID":2, "type":2, "name":`美粒果柳橙汁`, "count":10, "price":29, "image":`./images/juice/juice1.jpg`},
+    {"itemID":3, "type":3, "name":`茶裏王英式紅茶`, "count":10, "price":20, "image":`./images/tea/tea1.jpg`},
+    {"itemID":4, "type":4, "name":`UCC黑咖啡`, "count":10, "price":15, "image":`./images/coffee/coffee1.jpg`},
+    {"itemID":5, "type":5, "name":`經典原味洋芋片`, "count":10, "price":20, "image":`./images/chip/chip1.jpg`},
+    {"itemID":6, "type":6, "name":`義美鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie/cookie1.jpg`},
+    {"itemID":7, "type":7, "name":`海鹽羅宋麵包`, "count":10, "price":35, "image":`./images/bread/bread1.jpg`},
+    {"itemID":8, "type":8, "name":`來一客鮮蝦魚板泡麵`, "count":10, "price":25, "image":`./images/instantnoodle/instantnoodle1.jpg`},
 ];
 /*
 itemID表示物品代號 (模型判斷用)
