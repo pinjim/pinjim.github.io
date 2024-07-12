@@ -362,7 +362,7 @@ async function GetWeatherInfo(location){
 
 function SelectItem(item){
     try{
-        for(let index = 0; index<iteminfo.length; index++){
+        for(let index = 0; index<items.length; index++){
             if(String(item) === items[index].name){
                 if(items[index].count >= 1){
                     let selectitem = {"name":items[index].name, "price":items[index].price};
