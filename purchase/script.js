@@ -105,10 +105,10 @@ function CreatDiscountItemWrapper(item, discount){
     discountDiv.classList.add('discount');/*創建class:discount*/
     let discountPercent = document.createElement('span');
     discountPercent.textContent = `\u00A0${Math.round((1-discount)*100)}%OFF\u00A0`;
-    let discountNumber = document.createElement('span');
+    /*let discountNumber = document.createElement('span');
     discountNumber.textContent = `\u00A0-NT$${Math.round(item.price*(1-discount))}\u00A0`;
     discountDiv.appendChild(discountNumber);
-    discountDiv.appendChild(document.createElement('br'));
+    discountDiv.appendChild(document.createElement('br'));*/
     discountDiv.appendChild(discountPercent);
     discountDiv.style.color = `white`;
     discountDiv.style.backgroundColor = `#c74646`;
