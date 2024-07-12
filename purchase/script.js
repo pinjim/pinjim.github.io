@@ -116,7 +116,7 @@ function CreatDiscountItemWrapper(item, discount){
 
 function CreatDiscountItemContainer(){
     let usedindex = [];
-    let discount=7;
+    let discount=6;
     while(usedindex.length<4){
         let randomindex = Math.floor(Math.random() * iteminfo.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
