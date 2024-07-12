@@ -90,12 +90,11 @@ function CreatDiscountItemWrapper(item, discount){
     
     let priceDiv = document.createElement('div');
     priceDiv.classList.add('price'); /*創建class:price*/
-
     let originalPriceSpan = document.createElement('span');
     originalPriceSpan.textContent = `NT$${Math.round(item.price)}`;
     originalPriceSpan.style.textDecoration = 'line-through';
     let discountedPriceSpan = document.createElement('span');
-    discountedPriceSpan.textContent = `NT$${Math.round(item.price * discount)}`;
+    discountedPriceSpan.textContent = `NT$${item.price-Math.round(item.price*(1-discount))}`;
     priceDiv.appendChild(originalPriceSpan);
     priceDiv.appendChild(document.createElement('br'));
     priceDiv.appendChild(discountedPriceSpan);
@@ -104,7 +103,13 @@ function CreatDiscountItemWrapper(item, discount){
 
     let discountDiv = document.createElement('div');
     discountDiv.classList.add('discount');/*創建class:discount*/
-    discountDiv.textContent = `\u00A0${Math.round((1-discount)*100)}%OFF\u00A0`;
+    let discountPercent = document.createElement('span');
+    discountPercent.textContent = `\u00A0${Math.round((1-discount)*100)}%OFF\u00A0`;
+    let discountNumber = document.createElement('span');
+    discountNumber.textContent = `\u00A0-NT$${Math.round(item.price*(1-discount))}\u00A0`;
+    discountDiv.appendChild(discountNumber);
+    discountDiv.appendChild(document.createElement('br'));
+    discountDiv.appendChild(discountPercent);
     discountDiv.style.color = `white`;
     discountDiv.style.backgroundColor = `#c74646`;
     descriptionDiv.appendChild(discountDiv);/*在description下加入discount*/
@@ -115,8 +120,8 @@ function CreatDiscountItemWrapper(item, discount){
 
 function CreatDiscountItemContainer(){
     let usedindex = [];
-    let discount=7;
-    while(usedindex.length<3){
+    let discount=6;
+    while(usedindex.length<4){
         let randomindex = Math.floor(Math.random() * iteminfo.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
             if(iteminfo[randomindex].count>0){
@@ -216,7 +221,7 @@ function Calculation(){
         if(cart[1].name != `none`){
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
             document.getElementById('itemprice').innerText = `NT$${cart[0].price}\nNT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
-            document.getElementById('totalprice').innerText = `NT$${cart[0].price+Math.round(cart[1].price*(cart[1].discount))}`;
+            document.getElementById('totalprice').innerText = `NT$${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
         }
         else{
             document.getElementById('itemname').innerText = `${cart[0].name}`;
