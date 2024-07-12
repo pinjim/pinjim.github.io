@@ -31,26 +31,6 @@ body {
     border-width: 2px;
     margin: 10px;
 }
-@media (max-width: 1916px) {
-    .item-container {
-        max-width: 1380px;
-    }
-}
-@media (max-width: 1530px) {
-    .item-container {
-        max-width: 1035px;
-    }
-}
-@media (max-width: 1150px) {
-    .item-container {
-        max-width: 690px;
-    }
-}
-@media (max-width: 766px) {
-    .item-container {
-        max-width: 345px;
-    }
-}
 .description {
     display: flex;
     justify-content: space-between; 
@@ -134,25 +114,25 @@ button:hover {
     background-color: #723131;
     transition: 0.5s;
 }
-redirect {
+.redirect {
+    width: 75%;
     font-size: 50px;
-    padding: 10px 20px;
+    padding: auto 20px;
     background-color: #02a915;
     color: #fff;
     border: none;
     border-radius: 7px;
     cursor: pointer;
+    margin: 20px auto;
 }
-redirect:hover {
+.redirect:hover {
     background-color: #00700d;
     transition: 0.5s;
 }
 
 
 .iteminfocontanier{
-    max-width: 1460px;
-    width: auto;
-    min-width: 730;
+    width: 75%;
     height: auto;
     background-color: rgb(231, 231, 231);
     display: flex;
@@ -165,18 +145,82 @@ redirect:hover {
     text-align: left;
     margin-left:0;
     padding: 10px;
+    line-height: 1.2;
 }
 .itemprice{
     color: #4accff;
-    font-size: 45px;
+    font-size: 40px;
     margin-left: auto;
-    text-align: right;
+    text-align: left;
     padding: 10px;
+    line-height: 1.2;
 }
 .totalprice{
     color: #43ca49;
-    font-size: 45px;
+    font-size: 40px;
     margin-left: auto;
     text-align: right;
     padding: 10px;
+    line-height: 1.2;
+}
+
+
+
+
+
+@media (max-width: 1916px) {
+    .item-container {
+        max-width: 1380px;
+    }
+    .itemname {
+        font-size: 35px;
+    }
+    .itemprice {
+        font-size: 35px;
+    }
+    .totalprice {
+        font-size: 35px;
+    }
+}
+@media (max-width: 1530px) {
+    .item-container {
+        max-width: 1035px;
+    }
+    .itemname {
+        font-size: 30px;
+    }
+    .itemprice {
+        font-size: 30px;
+    }
+    .totalprice {
+        font-size: 30px;
+    }
+}
+@media (max-width: 1150px) {
+    .item-container {
+        max-width: 690px;
+    }
+    .itemname {
+        font-size: 25px;
+    }
+    .itemprice {
+        font-size: 25px;
+    }
+    .totalprice {
+        font-size: 25px;
+    }
+}
+@media (max-width: 766px) {
+    .item-container {
+        max-width: 345px;
+    }
+    .itemname {
+        font-size: 20px;
+    }
+    .itemprice {
+        font-size: 20px;
+    }
+    .totalprice {
+        font-size: 20px;
+    }
 }
