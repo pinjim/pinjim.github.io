@@ -1,12 +1,106 @@
 let iteminfo = [
-    {"itemID":1, "type":1, "name":`可口可樂`, "count":10, "price":15, "image":`./images/soda/soda1.jpg`},
-    {"itemID":2, "type":2, "name":`美粒果柳橙汁`, "count":10, "price":29, "image":`./images/juice/juice1.jpg`},
-    {"itemID":3, "type":3, "name":`茶裏王英式紅茶`, "count":10, "price":20, "image":`./images/tea/tea1.jpg`},
-    {"itemID":4, "type":4, "name":`UCC黑咖啡`, "count":10, "price":15, "image":`./images/coffee/coffee1.jpg`},
-    {"itemID":5, "type":5, "name":`經典原味洋芋片`, "count":10, "price":20, "image":`./images/chip/chip1.jpg`},
-    {"itemID":6, "type":6, "name":`義美鮮乳薄餅`, "count":10, "price":80, "image":`./images/cookie/cookie1.jpg`},
-    {"itemID":7, "type":7, "name":`海鹽羅宋麵包`, "count":10, "price":35, "image":`./images/bread/bread1.jpg`},
-    {"itemID":8, "type":8, "name":`來一客鮮蝦魚板泡麵`, "count":10, "price":25, "image":`./images/instantnoodle/instantnoodle1.jpg`},
+    {
+        "itemID":1, "type":1, "name":`可口可樂`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":15, 
+        "image":`./images/soda/soda1.jpg`
+    },
+    {
+        "itemID":2, "type":2, "name":`美粒果柳橙汁`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":29, 
+        "image":`./images/juice/juice1.jpg`
+    },
+    {
+        "itemID":3, "type":3, "name":`茶裏王英式紅茶`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/tea/tea1.jpg`
+    },
+    {
+        "itemID":4, "type":4, "name":`UCC黑咖啡`, 
+        "temp":{"cold":true, "normal":true, "hot":true}, 
+        "count":[10, 10, 0], "price":15, 
+        "image":`./images/coffee/coffee1.jpg`
+    },
+    {
+        "itemID":5, "type":5, "name":`經典原味洋芋片`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/chip/chip1.jpg`
+    },
+    {
+        "itemID":6, "type":6, "name":`義美鮮乳薄餅`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":80, 
+        "image":`./images/cookie/cookie1.jpg`
+    },
+    {
+        "itemID":7, "type":7, "name":`海鹽羅宋麵包`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":35, 
+        "image":`./images/bread/bread1.jpg`
+    },
+    {
+        "itemID":8, "type":8, "name":`來一客鮮蝦魚板風味泡麵`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":25, 
+        "image":`./images/instantnoodle/instantnoodle1.jpg`
+    },
+    {
+        "itemID":9, "type":3, "name":`茶裏王無糖綠茶`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/tea/tea2.jpg`
+    },
+    {
+        "itemID":10, "type":3, "name":`茶裏王台式綠茶`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/tea/tea3.jpg`
+    },
+    {
+        "itemID":11, "type":3, "name":`茶裏王白毫烏龍`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/tea/tea4.jpg`
+    },
+    {
+        "itemID":12, "type":3, "name":`茶裏王青心烏龍`, 
+        "temp":{"cold":true, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":20, 
+        "image":`./images/tea/tea5.jpg`
+    },
+    {
+        "itemID":13, "type":8, "name":`來一客牛肉蔬菜風味泡麵`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":25, 
+        "image":`./images/instantnoodle/instantnoodle2.jpg`
+    },
+    {
+        "itemID":14, "type":8, "name":`來一客京燉肉骨風味泡麵`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":25, 
+        "image":`./images/instantnoodle/instantnoodle3.jpg`
+    },
+    {
+        "itemID":15, "type":8, "name":`維力炸醬麵`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":35, 
+        "image":`./images/instantnoodle/instantnoodle4.jpg`
+    },
+    {
+        "itemID":16, "type":8, "name":`滿漢大餐蔥燒牛肉麵`, 
+        "temp":{"cold":false, "normal":true, "hot":false}, 
+        "count":[10, 10, 0], "price":59, 
+        "image":`./images/instantnoodle/instantnoodle5.jpg`
+    },
+    {
+        "itemID":17, "type":4, "name":`UCC黑咖啡`, 
+        "temp":{"cold":true, "normal":true, "hot":true}, 
+        "count":[10, 10, 0], "price":15, 
+        "image":`./images/coffee/coffee2.jpg`
+    },
 ];
 /*
 itemID表示物品代號 (模型判斷用)
@@ -24,7 +118,7 @@ name表示物品名稱 (UI顯示用)
 price表示物品價錢 (UI顯示用)
 image表示物品照片檔案 (UI顯示用)
 */
-
+let items = ItemSorter();
 const container = document.getElementById('item-container');
 
 function ClearLocalStorage(){
@@ -38,6 +132,53 @@ function CheckLocalStorage(){
     }catch(error){
         Redirect();
     }
+}
+
+function ItemSorter(){
+    let items = [];
+    for(let target=1; target<=8; target++){
+        for(let index=0; index<iteminfo.length; index++){
+            if(!items.includes(iteminfo[index]) && iteminfo[index].type === target){
+                if(iteminfo[index].temp.cold){
+                    let itemcold = {
+                        "itemID":iteminfo[index].itemID, 
+                        "type":iteminfo[index].type, 
+                        "name":`${iteminfo[index].name}(冰)`, 
+                        "temp":0, 
+                        "count":iteminfo[index].count[0], 
+                        "price":iteminfo[index].price, 
+                        "image":iteminfo[index].image
+                    };
+                    items.push(itemcold);
+                }
+                if(iteminfo[index].temp.normal){
+                    let itemnormal = {
+                        "itemID":iteminfo[index].itemID, 
+                        "type":iteminfo[index].type, 
+                        "name":`${iteminfo[index].name}(常溫)`, 
+                        "temp":1, 
+                        "count":iteminfo[index].count[1], 
+                        "price":iteminfo[index].price, 
+                        "image":iteminfo[index].image
+                    };
+                    items.push(itemnormal);
+                }
+                if(iteminfo[index].temp.hot){
+                    let itemhot = {
+                        "itemID":iteminfo[index].itemID, 
+                        "type":iteminfo[index].type, 
+                        "name":`${iteminfo[index].name}(熱)`, 
+                        "temp":2, 
+                        "count":iteminfo[index].count[2], 
+                        "price":iteminfo[index].price, 
+                        "image":iteminfo[index].image
+                    };
+                    items.push(itemhot);
+                }
+            }
+        }
+    }
+    return items;
 }
 
 function CreatItemWrapper(item){
@@ -60,27 +201,48 @@ function CreatItemWrapper(item){
     priceDiv.textContent = `NT$${item.price}`;
     descriptionDiv.appendChild(priceDiv);/*在description下加入price*/
 
+    let statusDiv = document.createElement('div');
+    statusDiv.classList.add('status');/*創建class:status*/
+    let tempDiv = document.createElement('div');
+    tempDiv.classList.add('available');/*創建class:temp*/
+    tempDiv.style.color = `white`;
+    if(item.temp===0){
+        tempDiv.textContent = `冰`;
+        tempDiv.style.backgroundColor = `#0080FF`;
+    }
+    else if(item.temp===1){
+        tempDiv.textContent = `常溫`;
+        tempDiv.style.backgroundColor = `#ffd000`;
+    }
+    else if(item.temp===2){
+        tempDiv.textContent = `熱`;
+        tempDiv.style.backgroundColor = `#FF5151`;
+    }
+    statusDiv.appendChild(tempDiv);/*在status下加入temp*/
+
     let availabilityDiv = document.createElement('div');
     availabilityDiv.classList.add('available');/*創建class:available*/
     if(item.count>=1){
-        availabilityDiv.textContent = `\u00A0仍有庫存\u00A0`;
+        availabilityDiv.textContent = `有庫存`;
         availabilityDiv.style.color = `white`;
         availabilityDiv.style.backgroundColor = `#44cc61`;
     }
     else{
-        availabilityDiv.textContent = `\u00A0已無庫存\u00A0`;
+        availabilityDiv.textContent = `無庫存`;
         availabilityDiv.style.color = `white`;
         availabilityDiv.style.backgroundColor = `#c74646`;
     }
-    descriptionDiv.appendChild(availabilityDiv);/*在description下加入available*/
+    statusDiv.appendChild(availabilityDiv);/*在status下加入available*/
+    descriptionDiv.appendChild(statusDiv);/*在description下加入status*/
 
     itemWrapper.appendChild(descriptionDiv);/*在item-wrapper下加入description*/
     return itemWrapper;
 }
 
 function CreatItemContainer(){
-    for(let index=0; index<iteminfo.length; index++){
-        let itemwrapper = CreatItemWrapper(iteminfo[index]);
+    let itemwrapper;
+    for(let index=0; index<items.length; index++){
+        itemwrapper = CreatItemWrapper(items[index]);
         container.appendChild(itemwrapper);
     }
 }
@@ -101,7 +263,7 @@ function CreatDiscountItemWrapper(item, discount){
     descriptionDiv.classList.add('description');/*創建class:description*/
     
     let priceDiv = document.createElement('div');
-    priceDiv.classList.add('price'); /*創建class:price*/
+    priceDiv.classList.add('discountprice'); /*創建class:price*/
     let originalPriceSpan = document.createElement('span');
     originalPriceSpan.textContent = `NT$${Math.round(item.price)}`;
     originalPriceSpan.style.textDecoration = 'line-through';
@@ -112,19 +274,32 @@ function CreatDiscountItemWrapper(item, discount){
     priceDiv.appendChild(discountedPriceSpan);
     descriptionDiv.appendChild(priceDiv);
 
+    let statusDiv = document.createElement('div');
+    statusDiv.classList.add('status');/*創建class:status*/
+    let tempDiv = document.createElement('div');
+    tempDiv.classList.add('available');/*創建class:temp*/
+    tempDiv.style.color = `white`;
+    if(item.temp===0){
+        tempDiv.textContent = `冰`;
+        tempDiv.style.backgroundColor = `#0080FF`;
+    }
+    else if(item.temp===1){
+        tempDiv.textContent = `常溫`;
+        tempDiv.style.backgroundColor = `#ffd000`;
+    }
+    else if(item.temp===2){
+        tempDiv.textContent = `熱`;
+        tempDiv.style.backgroundColor = `#FF5151`;
+    }
+    statusDiv.appendChild(tempDiv);/*在status下加入temp*/
 
     let discountDiv = document.createElement('div');
     discountDiv.classList.add('discount');/*創建class:discount*/
-    let discountPercent = document.createElement('span');
-    discountPercent.textContent = `\u00A0${Math.round((1-discount)*100)}%OFF\u00A0`;
-    /*let discountNumber = document.createElement('span');
-    discountNumber.textContent = `\u00A0-NT$${Math.round(item.price*(1-discount))}\u00A0`;
-    discountDiv.appendChild(discountNumber);
-    discountDiv.appendChild(document.createElement('br'));*/
-    discountDiv.appendChild(discountPercent);
+    discountDiv.textContent = `${Math.round((1-discount)*100)}%OFF`;
     discountDiv.style.color = `white`;
     discountDiv.style.backgroundColor = `#c74646`;
-    descriptionDiv.appendChild(discountDiv);/*在description下加入discount*/
+    statusDiv.appendChild(discountDiv);/*在status下加入discount*/
+    descriptionDiv.appendChild(statusDiv);/*在description下加入status*/
 
     itemWrapper.appendChild(descriptionDiv);/*在item-wrapper下加入description*/
     return itemWrapper;
@@ -134,11 +309,11 @@ function CreatDiscountItemContainer(){
     let usedindex = [];
     let discount=6;
     while(usedindex.length<4){
-        let randomindex = Math.floor(Math.random() * iteminfo.length);/*暫用隨機選取商品*/
+        let randomindex = Math.floor(Math.random() * items.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
-            if(iteminfo[randomindex].count>0){
+            if(items[randomindex].count>0){
                 usedindex.push(randomindex);
-                let itemwrapper = CreatDiscountItemWrapper(iteminfo[randomindex], discount/10);
+                let itemwrapper = CreatDiscountItemWrapper(items[randomindex], discount/10);
                 container.appendChild(itemwrapper);
                 discount+=1;
             }
@@ -188,10 +363,10 @@ async function GetWeatherInfo(location){
 function SelectItem(item){
     try{
         for(let index = 0; index<iteminfo.length; index++){
-            if(String(item) === iteminfo[index].name){
-                if(iteminfo[index].count >= 1){
-                    let selectitem = {"name":iteminfo[index].name, "price":iteminfo[index].price};
-                    let choose = confirm(`您確定要購買${iteminfo[index].name}嗎?`);
+            if(String(item) === items[index].name){
+                if(items[index].count >= 1){
+                    let selectitem = {"name":items[index].name, "price":items[index].price};
+                    let choose = confirm(`您確定要購買 "${items[index].name}" 嗎?`);
                     if(choose){
                         console.log(`選擇了 : ${selectitem.name}(${selectitem.price})`);
                         localStorage.setItem('selectitem', JSON.stringify(selectitem));
@@ -210,12 +385,12 @@ function SelectItem(item){
 
 function SelectDiscountItem(item, discount){
     try{
-        for(let index = 0; index<iteminfo.length; index++){
-            if(String(item) === iteminfo[index].name){
-                let choose = confirm(`您確定要加購${iteminfo[index].name}嗎?`);
+        for(let index = 0; index<items.length; index++){
+            if(String(item) === items[index].name){
+                let choose = confirm(`您確定要加購 "${items[index].name}" 嗎?`);
                 if(choose) {
-                    let discountitem = {"name":iteminfo[index].name, "price":iteminfo[index].price, "discount":discount};
-                    console.log(`加購了 : ${iteminfo[index].name}(${Math.round(iteminfo[index].price*discount)})`);
+                    let discountitem = {"name":items[index].name, "price":items[index].price, "discount":discount};
+                    console.log(`加購了 : ${items[index].name}(${Math.round(items[index].price*discount)})`);
                     localStorage.setItem('discountitem', JSON.stringify(discountitem));
                     window.location.href = "./cashier.html";
                 }
