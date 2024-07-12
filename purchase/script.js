@@ -28,6 +28,15 @@ function ClearLocalStorage(){
     localStorage.clear();
 }
 
+function CheckLocalStorage(){
+    try{
+        let checker = JSON.parse(localStorage.getItem('selectitem'));
+        if(!checker) throw new Error(`無資料`);
+    }catch(error){
+        Redirect();
+    }
+}
+
 function CreatItemWrapper(item){
     let itemWrapper = document.createElement('div');
     itemWrapper.classList.add('item-wrapper');/*創建class:item-wrapper*/
@@ -220,13 +229,13 @@ function Calculation(){
         cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
-            document.getElementById('itemprice').innerText = `NT$${cart[0].price}\nNT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
-            document.getElementById('totalprice').innerText = `NT$${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
+            document.getElementById('itemprice').innerText = `\u00A0NT$${cart[0].price}\n\u00A0NT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
+            document.getElementById('totalprice').innerText = `\u00A0NT$${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
         }
         else{
             document.getElementById('itemname').innerText = `${cart[0].name}`;
-            document.getElementById('itemprice').innerText = `NT$${cart[0].price}`;
-            document.getElementById('totalprice').innerText = `NT$${cart[0].price}`;
+            document.getElementById('itemprice').innerText = `\u00A0NT$${cart[0].price}`;
+            document.getElementById('totalprice').innerText = `\u00A0NT$${cart[0].price}`;
         }
     }catch(error){
         console.log(error);
