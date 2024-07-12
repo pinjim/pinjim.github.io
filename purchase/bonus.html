@@ -8,10 +8,11 @@
 <body>
     <script>
         window.onload = function() {
+            CheckLocalStorage();
             CreatDiscountItemContainer();
         };
     </script>
-    <h1>加購以下商品可享折扣</h1>
+    <h1 onclick="Redirect()">加購以下商品可享折扣</h1>
     <div id="item-container" class="item-container">
     </div>
     <script src="script.js"></script>
