@@ -20,7 +20,7 @@ let iteminfo = [
     {
         "itemID":4, "type":4, "name":`UCC黑咖啡`, 
         "temp":{"cold":true, "normal":true, "hot":true}, 
-        "count":[10, 10, 0], "price":15, 
+        "count":[10, 10, 10], "price":15, 
         "image":`./images/coffee/coffee1.jpg`
     },
     {
@@ -96,9 +96,9 @@ let iteminfo = [
         "image":`./images/instantnoodle/instantnoodle5.jpg`
     },
     {
-        "itemID":17, "type":4, "name":`UCC黑咖啡`, 
+        "itemID":17, "type":4, "name":`星巴克冷翠咖啡`, 
         "temp":{"cold":true, "normal":true, "hot":true}, 
-        "count":[10, 10, 0], "price":15, 
+        "count":[10, 10, 10], "price":136, 
         "image":`./images/coffee/coffee2.jpg`
     },
 ];
@@ -198,7 +198,7 @@ function CreatItemWrapper(item){
 
     let priceDiv = document.createElement('div');
     priceDiv.classList.add('price');/*創建class:price*/
-    priceDiv.textContent = `NT$${item.price}`;
+    priceDiv.textContent = `TWD${item.price}`;
     descriptionDiv.appendChild(priceDiv);/*在description下加入price*/
 
     let statusDiv = document.createElement('div');
@@ -265,10 +265,10 @@ function CreatDiscountItemWrapper(item, discount){
     let priceDiv = document.createElement('div');
     priceDiv.classList.add('discountprice'); /*創建class:price*/
     let originalPriceSpan = document.createElement('span');
-    originalPriceSpan.textContent = `NT$${Math.round(item.price)}`;
+    originalPriceSpan.textContent = `TWD${Math.round(item.price)}`;
     originalPriceSpan.style.textDecoration = 'line-through';
     let discountedPriceSpan = document.createElement('span');
-    discountedPriceSpan.textContent = `NT$${item.price-Math.round(item.price*(1-discount))}`;
+    discountedPriceSpan.textContent = `TWD${item.price-Math.round(item.price*(1-discount))}`;
     priceDiv.appendChild(originalPriceSpan);
     priceDiv.appendChild(document.createElement('br'));
     priceDiv.appendChild(discountedPriceSpan);
@@ -423,8 +423,8 @@ function Calculation(){
         cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
-            document.getElementById('itemprice').innerText = `\u00A0NT$${cart[0].price}\n\u00A0NT$${cart[1].price}\n-NT$${Math.round(cart[1].price*(1-cart[1].discount))}`;
-            document.getElementById('totalprice').innerText = `\u00A0NT$${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
+            document.getElementById('itemprice').innerText = `\u00A0TWD${cart[0].price}\n\u00A0TWD${cart[1].price}\n-TWD${Math.round(cart[1].price*(1-cart[1].discount))}`;
+            document.getElementById('totalprice').innerText = `\u00A0TWD${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
         }
         else{
             document.getElementById('itemname').innerText = `${cart[0].name}`;
