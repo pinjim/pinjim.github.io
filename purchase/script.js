@@ -2,7 +2,7 @@ let iteminfo = [
     {
         "itemID":1, "type":1, "name":`可口可樂`, 
         "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":15, 
+        "count":[10, 0, 0], "price":15, 
         "image":`./images/soda/soda1.jpg`
     },
     {
@@ -25,26 +25,26 @@ let iteminfo = [
     },
     {
         "itemID":5, "type":5, "name":`經典原味洋芋片`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/chip/chip1.jpg`
     },
     {
         "itemID":6, "type":6, "name":`義美鮮乳薄餅`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":80, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":80, 
         "image":`./images/cookie/cookie1.jpg`
     },
     {
         "itemID":7, "type":7, "name":`海鹽羅宋麵包`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":35, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":35, 
         "image":`./images/bread/bread1.jpg`
     },
     {
         "itemID":8, "type":8, "name":`來一客鮮蝦魚板風味泡麵`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":25, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":25, 
         "image":`./images/instantnoodle/instantnoodle1.jpg`
     },
     {
@@ -73,26 +73,26 @@ let iteminfo = [
     },
     {
         "itemID":13, "type":8, "name":`來一客牛肉蔬菜風味泡麵`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":25, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":25, 
         "image":`./images/instantnoodle/instantnoodle2.jpg`
     },
     {
         "itemID":14, "type":8, "name":`來一客京燉肉骨風味泡麵`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":25, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":25, 
         "image":`./images/instantnoodle/instantnoodle3.jpg`
     },
     {
         "itemID":15, "type":8, "name":`維力炸醬麵`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":35, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":35, 
         "image":`./images/instantnoodle/instantnoodle4.jpg`
     },
     {
         "itemID":16, "type":8, "name":`滿漢大餐蔥燒牛肉麵`, 
-        "temp":{"cold":false, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":59, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":59, 
         "image":`./images/instantnoodle/instantnoodle5.jpg`
     },
     {
@@ -101,9 +101,16 @@ let iteminfo = [
         "count":[10, 10, 10], "price":136, 
         "image":`./images/coffee/coffee2.jpg`
     },
+    {
+        "itemID":18, "type":8, "name":`味味A排骨雞湯麵`, 
+        "temp":{"cold":false, "normal":false, "hot":false}, 
+        "count":[10], "price":23, 
+        "image":`./images/instantnoodle/instantnoodle6.jpg`
+    },
 ];
 /*
 itemID表示物品代號 (模型判斷用)
+
 type表示物品分類 (模型判斷用)
 ├1:汽水類 (soda)
 ├2:果汁類 (juice)
@@ -115,7 +122,20 @@ type表示物品分類 (模型判斷用)
 └8:泡麵類 (instantnoodle)
 
 name表示物品名稱 (UI顯示用)
+
+temp表示物品溫度 (UI顯示及模型判斷用)
+├true:有提供該溫度
+├false:未提供該溫度
+└cold、normal、hot都是false:不提供溫度選擇
+
+count表示物品庫存 (UI顯示及模型判斷用)
+├第一個數字:冷的庫存
+├第二個數字:常溫的庫存
+├第三個數字:熱的庫存
+└只有一個數字:不提供溫度選擇的庫存
+
 price表示物品價錢 (UI顯示用)
+
 image表示物品照片檔案 (UI顯示用)
 */
 let items = ItemSorter();
@@ -175,6 +195,18 @@ function ItemSorter(){
                     };
                     items.push(itemhot);
                 }
+                else if(!iteminfo[index].temp.cold && !iteminfo[index].temp.normal && !iteminfo[index].temp.hot){
+                    let itemdefault = {
+                        "itemID":iteminfo[index].itemID, 
+                        "type":iteminfo[index].type, 
+                        "name":`${iteminfo[index].name}`, 
+                        "temp":3, 
+                        "count":iteminfo[index].count[0], 
+                        "price":iteminfo[index].price, 
+                        "image":iteminfo[index].image
+                    };
+                    items.push(itemdefault);
+                }
             }
         }
     }
@@ -218,6 +250,11 @@ function CreatItemWrapper(item){
         tempDiv.textContent = `熱`;
         tempDiv.style.backgroundColor = `#FF5151`;
     }
+    else if(item.temp===3){
+        tempDiv.textContent = `不分溫度`;
+        tempDiv.style.backgroundColor = `gray`;//#44cc61
+    }
+
     statusDiv.appendChild(tempDiv);/*在status下加入temp*/
 
     let availabilityDiv = document.createElement('div');
@@ -291,6 +328,10 @@ function CreatDiscountItemWrapper(item, discount){
         tempDiv.textContent = `熱`;
         tempDiv.style.backgroundColor = `#FF5151`;
     }
+    else if(item.temp===3){
+        tempDiv.textContent = `不分溫度`;
+        tempDiv.style.backgroundColor = `gray`;
+    }
     statusDiv.appendChild(tempDiv);/*在status下加入temp*/
 
     let discountDiv = document.createElement('div');
@@ -307,7 +348,7 @@ function CreatDiscountItemWrapper(item, discount){
 
 function CreatDiscountItemContainer(){
     let usedindex = [];
-    let discount=6;
+    let discount= 7;
     while(usedindex.length<4){
         let randomindex = Math.floor(Math.random() * items.length);/*暫用隨機選取商品*/
         if(!usedindex.includes(randomindex)){
@@ -347,34 +388,60 @@ async function GetWeatherInfo(location){
         const response = await fetch(`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-427B7265-DE60-4C1F-8AD0-4E7509C741D1&format=JSON&locationName=${location}`);
         const info = await response.json();
         if(!info.success) throw new Error(`無法取得氣象資訊。`);
-        else{
-            const locationinfo = info.records.location.weatherElement;
-            const weather = locationinfo[0].time[0].parameter.parameterName;
-            const mintemperature = locationinfo[2].time[0].parameter.parameterName;
-            const maxtemperature = locationinfo[4].time[0].parameter.parameterName;
-            const averagetemperature = (maxtemperature+mintemperature)/2;
+        else if(info.success){
+            const locationinfo = info.records.location[0];
+            const weather = locationinfo.weatherElement[0].time[0].parameter.parameterName;
+            const mintemperature = parseFloat(locationinfo.weatherElement[2].time[0].parameter.parameterName);
+            const maxtemperature = parseFloat(locationinfo.weatherElement[4].time[0].parameter.parameterName);
+            const averagetemperature = ((maxtemperature)+(mintemperature))/2;
             return [weather, averagetemperature];
         }
     }catch(error){
-        return error;
+        alert(error);
     }
 }
 
-function SelectItem(item){
+async function FormatFeature(){
+    let date = new Date();
+    let time = date.getHours();
+    let weather = await GetWeatherInfo(`苗栗縣`);
+    let formatedtime;
+    let formatedweather;
+    let formatedtemp;
+
+    if(time>=0 && time<=6) formatedtime = `凌晨`;
+    else if(time>=6 && time<11) formatedtime = `早上`;
+    else if(time>=11 && time<14) formatedtime = `中午`;
+    else if(time>=14 && time<18) formatedtime = `下午`;
+    else if(time>=18 && time<24) formatedtime = `晚上`;
+
+    if(weather[0].includes(`雨`)) formatedweather = `陰`;
+    else if(weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `陰`;
+    else if(weather[0].includes(`晴`) && !weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `晴`;
+
+    if(weather[1]<=10) formatedtemp = `寒冷`;
+    else if(weather[1]>10 && weather[1]<=25) formatedtemp = `舒適`;
+    else if(weather[1]>25) formatedtemp = `悶熱`;
+
+    let feature = {"time":formatedtime, "weather":formatedweather, "temp":formatedtemp};
+    return feature;
+}
+
+async function SelectItem(item){
     try{
         for(let index = 0; index<items.length; index++){
             if(String(item) === items[index].name){
                 if(items[index].count >= 1){
-                    let selectitem = {"name":items[index].name, "price":items[index].price};
                     let choose = confirm(`您確定要購買 "${items[index].name}" 嗎?`);
                     if(choose){
-                        console.log(`選擇了 : ${selectitem.name}(${selectitem.price})`);
+                        let feature = await FormatFeature();
+                        let selectitem = {"time":feature.time, "weather":feature.weather, "temp":feature.temp, "name":items[index].name, "price":items[index].price};
                         localStorage.setItem('selectitem', JSON.stringify(selectitem));
                         window.location.href = "./bonus.html";
                     }
                     else return;
                 }
-                else alert(`${item}已無庫存!`);
+                else alert(`"${item}" 已無庫存!`);
             }
         }
     }
@@ -390,7 +457,7 @@ function SelectDiscountItem(item, discount){
                 let choose = confirm(`您確定要加購 "${items[index].name}" 嗎?`);
                 if(choose) {
                     let discountitem = {"name":items[index].name, "price":items[index].price, "discount":discount};
-                    console.log(`加購了 : ${items[index].name}(${Math.round(items[index].price*discount)})`);
+                    console.log(`並且加購了 : ${items[index].name}(${Math.round(items[index].price*discount)})`);
                     localStorage.setItem('discountitem', JSON.stringify(discountitem));
                     window.location.href = "./cashier.html";
                 }
@@ -413,7 +480,9 @@ function NoThank(){
     let choose = confirm(`您確定不需要加購折扣商品?`);
     let discountitem = {"name":`none`, "price":`none`, "discount":`none`};
     localStorage.setItem('discountitem', JSON.stringify(discountitem));
-    if(choose) window.location.href = "./cashier.html";
+    if(choose){
+        window.location.href = "./cashier.html";
+    }
     else return;
 }
 
@@ -422,11 +491,13 @@ function Calculation(){
         let cart = [];
         cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
+            CreatCSV(true, cart);
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
             document.getElementById('itemprice').innerText = `\u00A0TWD${cart[0].price}\n\u00A0TWD${cart[1].price}\n-TWD${Math.round(cart[1].price*(1-cart[1].discount))}`;
             document.getElementById('totalprice').innerText = `\u00A0TWD${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
         }
         else{
+            CreatCSV(false, cart);
             document.getElementById('itemname').innerText = `${cart[0].name}`;
             document.getElementById('itemprice').innerText = `\u00A0NT$${cart[0].price}`;
             document.getElementById('totalprice').innerText = `\u00A0NT$${cart[0].price}`;
@@ -439,4 +510,21 @@ function Calculation(){
 
 function Redirect(){
     window.location.href = "./index.html";
+}
+
+function CreatCSV(status, cart){
+    try{
+        if(status){
+            console.log(`\n用戶在${cart[0].time}(${cart[0].weather}、${cart[0].temp})選擇了 : ${cart[0].name} TWD${cart[0].price}`);
+            console.log(`並且加購折扣${cart[1].discount*10}折的商品 : ${cart[1].name} TWD${cart[1].price-(cart[1].price*(1-cart[1].discount))}`);
+            console.log(`已錄入CSV`);
+        }
+        else if(!status){
+            console.log(`\n用戶在${cart[0].time}(${cart[0].weather}、${cart[0].temp})選擇了 : ${cart[0].name} TWD${cart[0].price}`);
+            console.log(`並且未加購商品`);
+            console.log(`已錄入CSV`);
+        }
+    }catch(error){
+        console.log(`CSV寫入失敗`);
+    }
 }
