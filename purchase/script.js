@@ -2,7 +2,7 @@ let iteminfo = [
     {
         "itemID":1, "type":1, "name":`可口可樂`, 
         "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 0, 0], "price":15, 
+        "count":[10, 10, 0], "price":15, 
         "image":`./images/soda/soda1.jpg`
     },
     {
@@ -409,15 +409,16 @@ async function FormatFeature(){
     let formatedweather;
     let formatedtemp;
 
-    if(time>=0 && time<=6) formatedtime = `凌晨`;
-    else if(time>=6 && time<11) formatedtime = `早上`;
-    else if(time>=11 && time<14) formatedtime = `中午`;
-    else if(time>=14 && time<18) formatedtime = `下午`;
-    else if(time>=18 && time<24) formatedtime = `晚上`;
+    if(time>=0 && time<4) formatedtime = `午夜`;
+    else if(time>=4 && time<8) formatedtime = `清晨`;
+    else if(time>=8 && time<12) formatedtime = `上午`;
+    else if(time>=12 && time<16) formatedtime = `下午`;
+    else if(time>=16 && time<20) formatedtime = `傍晚`;
+    else if(time>=20 && time<24) formatedtime = `夜晚`;
 
-    if(weather[0].includes(`雨`)) formatedweather = `陰`;
-    else if(weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `陰`;
-    else if(weather[0].includes(`晴`) && !weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `晴`;
+    if(weather[0].includes(`雨`)) formatedweather = `雨天`;
+    else if(weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `陰天`;
+    else if(weather[0].includes(`晴`) && !weather[0].includes(`陰`) && !weather[0].includes(`雨`)) formatedweather = `晴天`;
 
     if(weather[1]<=10) formatedtemp = `寒冷`;
     else if(weather[1]>10 && weather[1]<=25) formatedtemp = `舒適`;
