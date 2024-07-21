@@ -1,26 +1,26 @@
 let iteminfo = [
     {
         "itemID":1, "type":1, "name":`可口可樂`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":15, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10, 0, 0], "price":15, 
         "image":`./images/soda/soda1.jpg`
     },
     {
         "itemID":2, "type":2, "name":`美粒果柳橙汁`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":29, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":29, 
         "image":`./images/juice/juice1.jpg`
     },
     {
         "itemID":3, "type":3, "name":`茶裏王英式紅茶`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/tea/tea1.jpg`
     },
     {
         "itemID":4, "type":4, "name":`UCC黑咖啡`, 
-        "temp":{"cold":true, "normal":true, "hot":true}, 
-        "count":[10, 10, 10], "price":15, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":15, 
         "image":`./images/coffee/coffee1.jpg`
     },
     {
@@ -49,26 +49,26 @@ let iteminfo = [
     },
     {
         "itemID":9, "type":3, "name":`茶裏王無糖綠茶`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/tea/tea2.jpg`
     },
     {
         "itemID":10, "type":3, "name":`茶裏王台式綠茶`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/tea/tea3.jpg`
     },
     {
         "itemID":11, "type":3, "name":`茶裏王白毫烏龍`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/tea/tea4.jpg`
     },
     {
         "itemID":12, "type":3, "name":`茶裏王青心烏龍`, 
-        "temp":{"cold":true, "normal":true, "hot":false}, 
-        "count":[10, 10, 0], "price":20, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":20, 
         "image":`./images/tea/tea5.jpg`
     },
     {
@@ -97,8 +97,8 @@ let iteminfo = [
     },
     {
         "itemID":17, "type":4, "name":`星巴克冷翠咖啡`, 
-        "temp":{"cold":true, "normal":true, "hot":true}, 
-        "count":[10, 10, 10], "price":136, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":136, 
         "image":`./images/coffee/coffee2.jpg`
     },
     {
@@ -171,7 +171,7 @@ function ItemSorter(){
                     };
                     items.push(itemcold);
                 }
-                if(iteminfo[index].temp.normal){
+                /*if(iteminfo[index].temp.normal){
                     let itemnormal = {
                         "itemID":iteminfo[index].itemID, 
                         "type":iteminfo[index].type, 
@@ -194,7 +194,7 @@ function ItemSorter(){
                         "image":iteminfo[index].image
                     };
                     items.push(itemhot);
-                }
+                }*/
                 else if(!iteminfo[index].temp.cold && !iteminfo[index].temp.normal && !iteminfo[index].temp.hot){
                     let itemdefault = {
                         "itemID":iteminfo[index].itemID, 
@@ -399,6 +399,15 @@ async function GetWeatherInfo(location){
     }catch(error){
         alert(error);
     }
+}
+
+async function CreatTemp(){
+    let weather = await GetWeatherInfo(`苗栗縣`);
+    let temp = document.getElementById(`temp`);
+    temp.innerText = (`\u00A0${weather[1]}℃\u00A0`);
+    if(weather[1]<=10) temp.style.backgroundColor = `#0080FF`;
+    else if(weather[1]>10 && weather[1]<=25) temp.style.backgroundColor = `#ffd000`;
+    else if(weather[1]>25) temp.style.backgroundColor = `#FF5151`;
 }
 
 async function FormatFeature(){
