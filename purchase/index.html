@@ -7,12 +7,16 @@
 </head>
 <body>
     <script>
-        window.onload = function() {
+        window.onload = async function() {
             ClearLocalStorage();
             CreatItemContainer();
+            await CreatTemp();
         };
     </script>
-    <h1>歡迎使用販賣機</h1>
+    <div class="title-container">
+        <div class="toptitle"><h1>歡迎使用販賣機</h1></div>
+        <div class="temp" id="temp"></div>
+    </div>
     <div id="item-container" class="item-container"></div>
     <script src="script.js"></script>
 </body>
