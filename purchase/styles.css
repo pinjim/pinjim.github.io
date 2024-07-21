@@ -14,7 +14,6 @@ body {
     max-width: 2070px;
     min-width: 345px;
     flex-wrap: wrap;
-    
     padding: 20px;
     border-radius: 8px;
     margin: 50px auto;
@@ -118,10 +117,32 @@ body {
 }
 
 
+.title-container {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+}
 
-h1 {
-    font-size: 50px;
+.toptitle {
+    font-size: 30px;
     color: #316872;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+}
+
+.temp {
+    border-radius: 8px;
+    font-size: 50px;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: 50px;
 }
 
 
