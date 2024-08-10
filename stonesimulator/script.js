@@ -1,42 +1,36 @@
 let events = [
     {
         name: `差距懸殊的茶道之戰 嘮嘮叨叨新邪馬臺國 從地獄歸來的男人`,
-        count: 5,
         startdate: `20220914`,
         enddate: `20221005`,
         image: `./images/image0.png`
     },
     {
         name: `Road to 7 [Lostbelt No.5 亞特蘭提斯]`,
-        count: 3,
         startdate: `20220928`,
         enddate: `20221005`,
         image: `./images/image1.png`
     },
     {
         name: `Road to 7 [Lostbelt No.5 奧林帕斯]`,
-        count: 3,
         startdate: `20221005`,
         enddate: `20221012`,
         image: `./images/image2.png`
     },
     {
         name: `108人的萬聖節・起義！ ～小龍娘水滸演義～`,
-        count: 5,
         startdate: `20221012`,
         enddate: `20221102`,
         image: `./images/image3.png`
     },
     {
         name: `迦勒底妖精騎士杯 ～第二代的凱旋～`,
-        count: 5,
         startdate: `20221109`,
         enddate: `20221123`,
         image: `./images/image4.png`
     },
     {
         name: `Road to 7 [Lostbelt No.6]`,
-        count: 3,
         startdate: `20221201`,
         enddate: `20221215`,
         image: `./images/image5.png`
@@ -83,16 +77,57 @@ function SelectTargetEvent(index){
     targetindex = index;
 }
 
-function Calculation(){
-    const stonecount = document.getElementById('inputField1');
-    const piececount = document.getElementById('inputField2');
-    const totallogin = document.getElementById('inputField3');
-    const contlogin = document.getElementById('inputField4');
-    if(!targetindex) alert(`請選擇一個目標活動`);
-    console.log(`到 "${events[targetindex].name}" 開始時\n聖晶石數量為 : ${stonecount.value}\n聖晶片數量為 : ${piececount.value}\n累積登入天數為 : ${stonecount.value}\n連續登入天數為 : ${stonecount.value}\n`);
+function ParseDate(dateString) {
+    const year = parseInt(dateString.substring(0, 4), 10);
+    const month = parseInt(dateString.substring(4, 6), 10) - 1;
+    const day = parseInt(dateString.substring(6, 8), 10);
+    return new Date(year, month, day);
 }
 
-function CreatEvent(item, index){
+function DateOffset() {
+    let startdate = new Date();
+    startdate.setDate(startdate.getDate() - 660);
+    let enddate = ParseDate(events[targetindex].enddate);
+    let diffInMs = enddate - startdate;
+    let diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+    return Math.round(diffInDays);
+}
+
+function Calculation(){
+    try{
+        let choose = confirm(`計算不包含以下類型的獎勵 :\n●維護補償\n●分享或按讚達標獎勵\n●活動關卡獎勵`);
+        if(!choose) return;
+        let totalstone = 0;
+        const stonecount = parseInt(document.getElementById('inputField1').value);
+        const piececount = parseInt(document.getElementById('inputField2').value);
+        const totallogin = parseInt(document.getElementById('inputField3').value);
+        const contlogin = parseInt(document.getElementById('inputField4').value);
+        if(!targetindex) throw new Error(`請選擇目標活動`);
+        else if(isNaN(stonecount)) throw new Error(`請輸入現在的聖晶石數量`);
+        else if(isNaN(piececount)) throw new Error(`請輸入現在的聖晶片數量`);
+        else if(isNaN(totallogin)) throw new Error(`請輸入現在的累計登入天數`);
+        else if(isNaN(contlogin)) throw new Error(`請輸入現在的連續登入天數`);
+        let offsetdays = DateOffset();
+        
+        totalstone += stonecount;
+
+        totalstone += (piececount-piececount%7)/7;
+
+        totalstone += ((offsetdays-offsetdays%7)/7)*6;
+
+        let offset = offsetdays;
+        let leftdays = 50-totallogin%50;
+        if(leftdays != 50) offset-=leftdays;
+        totalstone += ((offset-offset%50)/50)*30;
+
+        console.log(`距離領取累登獎勵還差${leftdays}天\n可以領${(offsetdays-offsetdays%50)/50}次累登獎勵`);
+        console.log(`天數差距 : ${offsetdays}天\n${totalstone}`);
+    }catch(error){
+        alert(error);
+    }
+}
+
+function CreateEvent(item, index){
     let event = document.createElement('div');
     event.classList.add('event');/*創建class:event*/
     event.setAttribute('onclick', `SelectTargetEvent('${index}')`);/*設定onclick事件*/
@@ -100,10 +135,10 @@ function CreatEvent(item, index){
     return event;
 }
 
-function CreatItemContainer(){
+function CreateItemContainer(){
     let event;
     for(let index=0; index<events.length; index++){
-        event = CreatEvent(events[index], index);
+        event = CreateEvent(events[index], index);
         container.appendChild(event);
     }
 }
