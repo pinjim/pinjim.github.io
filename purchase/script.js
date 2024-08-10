@@ -213,7 +213,7 @@ function ItemSorter(){
     return items;
 }
 
-function CreatItemWrapper(item){
+function CreateItemWrapper(item){
     let itemWrapper = document.createElement('div');
     itemWrapper.classList.add('item-wrapper');/*創建class:item-wrapper*/
 
@@ -276,15 +276,15 @@ function CreatItemWrapper(item){
     return itemWrapper;
 }
 
-function CreatItemContainer(){
+function CreateItemContainer(){
     let itemwrapper;
     for(let index=0; index<items.length; index++){
-        itemwrapper = CreatItemWrapper(items[index]);
+        itemwrapper = CreateItemWrapper(items[index]);
         container.appendChild(itemwrapper);
     }
 }
 
-function CreatDiscountItemWrapper(item, discount){
+function CreateDiscountItemWrapper(item, discount){
     let itemWrapper = document.createElement('div');
     itemWrapper.classList.add('item-wrapper');/*創建class:item-wrapper*/
 
@@ -346,15 +346,37 @@ function CreatDiscountItemWrapper(item, discount){
     return itemWrapper;
 }
 
-function CreatDiscountItemContainer(){
+async function Process(data){
+    try{
+        const request = await fetch('/sendData',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        });
+        const response = await request.json();
+        if(response.message === `數據已接收`){
+            const result = (await fetch('/getPrediction')).json();
+            return result;
+        }
+        else{
+            throw new Error(`獲取推薦物品失敗`);
+        }
+    }catch(error){
+        alert(error);
+    }
+}
+
+function CreateDiscountItemContainer(){
     let usedindex = [];
-    let discount= 7;
+    let discount= 6;
     while(usedindex.length<4){
-        let randomindex = Math.floor(Math.random() * items.length);/*暫用隨機選取商品*/
+        let randomindex = Math.floor(Math.random() * items.length);
         if(!usedindex.includes(randomindex)){
             if(items[randomindex].count>0){
                 usedindex.push(randomindex);
-                let itemwrapper = CreatDiscountItemWrapper(items[randomindex], discount/10);
+                let itemwrapper = CreateDiscountItemWrapper(items[randomindex], discount/10);
                 container.appendChild(itemwrapper);
                 discount+=1;
             }
@@ -401,7 +423,7 @@ async function GetWeatherInfo(location){
     }
 }
 
-async function CreatTemp(){
+async function CreateTemp(){
     let weather = await GetWeatherInfo(`苗栗縣`);
     let temp = document.getElementById(`temp`);
     temp.innerText = (`\u00A0${weather[1]}℃\u00A0`);
@@ -501,7 +523,7 @@ function Calculation(){
         let cart = [];
         cart = [JSON.parse(localStorage.getItem('selectitem')), JSON.parse(localStorage.getItem('discountitem'))];
         if(cart[1].name != `none`){
-            CreatCSV(true, cart);
+            CreateCSV(true, cart);
             document.getElementById('itemname').innerText = `${cart[0].name}\n${cart[1].name}\n加購折扣`;
             document.getElementById('itemprice').innerText = `\u00A0TWD${cart[0].price}\n\u00A0TWD${cart[1].price}\n-TWD${Math.round(cart[1].price*(1-cart[1].discount))}`;
             document.getElementById('totalprice').innerText = `\u00A0TWD${cart[0].price+cart[1].price-Math.round(cart[1].price*(1-cart[1].discount))}`;
@@ -522,7 +544,7 @@ function Redirect(){
     window.location.href = "./index.html";
 }
 
-function CreatCSV(status, cart){
+function CreateCSV(status, cart){
     try{
         if(status){
             console.log(`\n用戶在${cart[0].time}(${cart[0].weather}、${cart[0].temp})選擇了 : ${cart[0].name} TWD${cart[0].price}`);
