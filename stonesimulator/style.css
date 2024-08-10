@@ -8,6 +8,7 @@ body {
     flex-wrap: wrap;
 }
 
+
 .container {
     background-color: #f0f0f0;
     font-size: 25px;
@@ -22,7 +23,6 @@ body {
     margin: 25px 25px;
     border-radius: 8px;
 }
-
 .event {
     position: relative;
     display: inline-block;
@@ -62,15 +62,15 @@ body {
     opacity: 0;
     transition: opacity 0.5s;
 }
-
 .container > div {
     margin: 10px auto;
 }
 
-.wrapper {
+
+.feature-container {
     display: flex;
     max-width: 640px;
-    max-height: 900px;
+    max-height: 950px;
     margin: 25px;
     overflow: hidden;
     flex-wrap: wrap;
@@ -94,17 +94,20 @@ body {
     width: 600px;
     height: 225px;
 }
-
+.text-container {
+    margin: 0px;
+    width: 650px;
+    display: flex;
+}
 .text{
     color: #00abc9;
-    margin-left: 4px;
     padding: 10px;
-    font-size: 30px;
+    margin-right: 10px;
+    font-size: 25px;
     width: 290px;
     height: 50px;
     border-radius: 8px;
 }
-
 .button{
     background-color: #ffffff;
     font-size: 40px;
@@ -115,10 +118,27 @@ body {
     border-color: #00abc9;
     border: solid;
 }
-
 .button:hover {
     background-color: #00abc9;
     border-color: #00abc9;
     color: #ffffff;
     transition: 0.5s;
+}
+
+
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 25px;
+    max-width: 640px;
+    max-height: 950px;
+    width: 640px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: solid;
+    border-color: #333;
+    background-image: url('./images/gudako.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
