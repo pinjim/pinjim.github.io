@@ -9,18 +9,24 @@
     <script>
         window.onload = function() {
             GetCurrentEvent(660);
-            CreatItemContainer();
+            CreateItemContainer();
         };
     </script>
     <div id="container" class="container">請選擇一個目標活動</div>
-    <div class="wrapper">
+    <div class="feature-container">
         <div id="banner-container1" class="banner-container">現在活動</div>
         <div id="banner-container2" class="banner-container">目標活動</div>
-        <input class="text" id="inputField1" placeholder="現在的聖晶石數量">
-        <input class="text" id="inputField2" placeholder="現在的聖晶片數量">
-        <input class="text" id="inputField3" placeholder="現在的累計登入天數">
-        <input class="text" id="inputField4" placeholder="現在的連續登入天數">
+        <div class="text-container">
+            <input class="text" id="inputField1" placeholder="現在的聖晶石數量">
+            <input class="text" id="inputField2" placeholder="現在的聖晶片數量">
+        </div>
+        <div class="text-container">
+            <input class="text" id="inputField3" placeholder="現在的累計登入天數">
+            <input class="text" id="inputField4" placeholder="現在的連續登入天數">
+        </div>
         <div class="button" onclick="Calculation()">計算</div>
+    </div>
+    <div class="result-container">
     </div>
     <script src="script.js"></script>
 </body>
