@@ -108,10 +108,10 @@ let iteminfo = [
         "image":`./images/instantnoodle/instantnoodle6.jpg`
     },
     {
-        "itemID":19, "type":8, "name":`張鬼珈`, 
+        "itemID":19, "type":8, "name":`張鬼嘉`, 
         "temp":{"cold":true, "normal":false, "hot":false}, 
-        "count":[10], "price":三億, 
-        "image":`./images/instantnoodle/instantnoodle6.jpg`
+        "count":[10], "price":300000, 
+        "image":`./images/coolfun/coolfun.png`
     },
 ];
 /*
