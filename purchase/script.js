@@ -107,6 +107,12 @@ let iteminfo = [
         "count":[10], "price":23, 
         "image":`./images/instantnoodle/instantnoodle6.jpg`
     },
+    {
+        "itemID":19, "type":8, "name":`張鬼珈`, 
+        "temp":{"cold":true, "normal":false, "hot":false}, 
+        "count":[10], "price":三億, 
+        "image":`./images/instantnoodle/instantnoodle6.jpg`
+    },
 ];
 /*
 itemID表示物品代號 (模型判斷用)
